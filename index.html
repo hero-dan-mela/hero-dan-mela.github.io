@@ -26,10 +26,10 @@
         }
 
         #bukaundangan {
-            position: fixed;
-            right: 50%;
-            transform: translateX(50%);
-            bottom: 21rem;
+            position: absolute;
+            top: 64%;
+            left: 50%;
+            transform: translateX(-50%);
             -webkit-animation-name: fadeIn;
             -webkit-animation-duration: 1s;
             animation-name: fadeIn;
@@ -58,15 +58,16 @@
         #hantaran {
             margin-bottom: -212px;
         }
+
+        #landing {
+            margin-bottom: -32px;
+        }
     </style>
 </head>
 
 <body data-footer_menu_style="dark">
 
     <!-- Display the full-screen image -->
-    <a id="bukaundangan" href="#wedding" class="center btn primary-bg" onclick="playAudio()">
-        <i class="mdi mdi-email"></i> Buka Undangan
-    </a>
     <div class="backtotop" style="height: auto;position: fixed;display: inline-block;">
 
         <a id="unmute-sound" style="display: none;" class="btn primary-bg">
@@ -95,6 +96,10 @@
                 <img src="assets/images/page/1.jpg" alt="Wedding Invitation" class="img-wrap" />
             </picture>
         </div>
+
+        <a id="bukaundangan" href="#wedding" class="center btn primary-bg" onclick="playAudio()">
+            <i class="mdi mdi-email"></i> Buka Undangan
+        </a>
     </div>
 
     <div class="col s12" id="wedding">
