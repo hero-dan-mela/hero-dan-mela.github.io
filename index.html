@@ -130,12 +130,13 @@
                 var imgwrapheight = document.querySelector('#landing picture .img-wrap');
                 var bukaundangan = document.querySelector('#bukaundangan');
                 var layarheight = window.innerHeight;
-                if (imgwrapheight < layarheight) {
-                    bukaundangan.style.top = '-' + (imgwrapheight.clientHeight * 0.23) + 'px';
+                var hvalue = 0;
+                if (imgwrapheight.clientHeight <= layarheight) {
+                    hvalue = imgwrapheight.clientHeight * 0.23;
                 } else {
-                    var hvalue = (imgwrapheight.clientHeight - layarheight) + (layarheight * 0.15)
-                    bukaundangan.style.top = '-' + hvalue + 'px';
+                    hvalue = (imgwrapheight.clientHeight - layarheight) + (layarheight * 0.15);
                 }
+                bukaundangan.style.top = '-' + hvalue + 'px';
             });
         </script>
 
