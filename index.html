@@ -15,6 +15,15 @@
     <link href="assets/plugins/carousel/carousel.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="assets/plugins/carousel/carousel.thumbs.css" type="text/css" rel="stylesheet" media="screen,projection">
     <style>
+        body {
+            overflow: hidden;
+        }
+
+        .col:not(#landing) {
+            filter: brightness(30%);
+            pointer-events: none;
+        }
+
         #myCarousel {
             margin: 0 auto;
         }
@@ -26,8 +35,7 @@
         }
 
         #bukaundangan {
-            position: absolute;
-            top: 64%;
+            position: relative;
             left: 50%;
             transform: translateX(-50%);
             -webkit-animation-name: fadeIn;
@@ -36,6 +44,16 @@
             animation-duration: 1s;
             z-index: 999;
             -webkit-backface-visibility: hidden;
+        }
+
+        @keyframes pullBack {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-20px);
+            }
         }
 
         #map a {
@@ -86,6 +104,12 @@
             document.getElementsByClassName("footer-menu")[0].style.display = "block";
             document.getElementById("bukaundangan").style.display = "none";
             document.getElementById("mute-sound").style.display = "block";
+
+            document.body.style.overflow = "auto";
+            document.querySelectorAll(".col:not(#landing)").forEach(function (el) {
+                el.style.filter = "none";
+                el.style.pointerEvents = "auto";
+            });
         }
     </script>
     <div class="col s12" id="landing">
@@ -100,6 +124,21 @@
         <a id="bukaundangan" href="#wedding" class="center btn primary-bg" onclick="playAudio()">
             <i class="mdi mdi-email"></i> Buka Undangan
         </a>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var imgwrapheight = document.querySelector('#landing picture .img-wrap');
+                var bukaundangan = document.querySelector('#bukaundangan');
+                var layarheight = window.innerHeight;
+                if (imgwrapheight < layarheight) {
+                    bukaundangan.style.top = '-' + (imgwrapheight.clientHeight * 0.23) + 'px';
+                } else {
+                    var hvalue = (imgwrapheight.clientHeight - layarheight) + (layarheight * 0.15)
+                    bukaundangan.style.top = '-' + hvalue + 'px';
+                }
+            });
+        </script>
+
     </div>
 
     <div class="col s12" id="wedding">
@@ -339,9 +378,29 @@
 
     new Carousel(container, options, { Thumbs });
 
+    var timeout;
 
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault();
+
+        var $this = $(this);
+
+        // If the element is already active, return
+        if ($this.hasClass("active")) {
+            return;
+        }
+
+        // Clear the timeout if set
+        clearTimeout(timeout);
+
+        // Remove "active" class from all links
+        $('a[href*="#"]').removeClass("active");
+        $('.footer-menu a').removeClass('active');
+
+        // Add "active" class to the clicked link after 500ms
+        timeout = setTimeout(function () {
+            $this.addClass("active");
+        }, 500);
 
         $('html, body').animate({
             scrollTop: $($(this).attr('href')).offset().top
