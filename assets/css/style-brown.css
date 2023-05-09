@@ -760,18 +760,6 @@ body .noUi-target.noUi-vertical .noUi-tooltip{
   float: left;
   margin-right: 10px;
 }
-.testimonials .userinfo{
-  margin-top: 10px;
-  display: inline-block;
-  width: auto;
-}
-.testimonials .userinfo img{
-}
-.testimonials .userinfo .left-align{
-  white-space: nowrap;
-  float: left;
-}
-
 /*----------------------------------------
  Floating action buttons
 ------------------------------------------*/
@@ -1897,6 +1885,7 @@ body nav a.brand-logo i{
     animation-name: fadeIn;
     animation-duration: 1s;
     z-index: 998;
+    backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 [data-footer_menu="hide"] .backtotop{
@@ -3891,7 +3880,7 @@ body[data-site_mode="dark"] .preloader-background{
   background-color: #a1887f;
     color: #f5f5f5;
 }
-[data-site_mode="dark"] .card-panel,{
+[data-site_mode="dark"] .card-panel {
   background-color: #37474F;
     color: #f5f5f5;
 }
