@@ -889,10 +889,10 @@ body .noUi-target.noUi-vertical .noUi-tooltip{
   margin-left: 0px;
 }
 .btn{
-    height: 32px;
-    line-height: 32px;
-    font-size: 14px;
-    padding: 0px 12px;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: 1rem;
+  padding: 0px 1rem;
 }
 .btn-large i.right{
   margin-right: 0px;

@@ -121,7 +121,7 @@
             </picture>
         </div>
 
-        <a id="bukaundangan" href="#wedding" class="center btn primary-bg" onclick="playAudio()">
+        <a id="bukaundangan" href="#wedding" class="center btn btn-rounded primary-bg" onclick="playAudio()">
             <i class="mdi mdi-email"></i> Buka Undangan
         </a>
 
@@ -131,18 +131,21 @@
                 var bukaundangan = document.querySelector('#bukaundangan');
                 var layarheight = window.innerHeight;
                 var hvalue = 0;
+                var rootFontSize = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('font-size'));
+
                 if (imgwrapheight.clientHeight <= layarheight) {
                     if (navigator.userAgent.match(/(iPod|iPhone)/)) {
-                        hvalue = imgwrapheight.clientHeight * 30 / 100;
+                        hvalue = (imgwrapheight.clientHeight / rootFontSize) * 0.23;
                     } else {
-                        hvalue = imgwrapheight.clientHeight * 0.23;
+                        hvalue = (imgwrapheight.clientHeight / rootFontSize) * 0.23;
                     }
                 } else {
-                    hvalue = (imgwrapheight.clientHeight - layarheight) + (layarheight * 0.15);
+                    hvalue = ((imgwrapheight.clientHeight - layarheight) / rootFontSize) + (layarheight * 0.15);
                 }
-                bukaundangan.style.top = '-' + hvalue + 'px';
+                bukaundangan.style.top = '-' + hvalue + 'rem';
             });
         </script>
+
 
     </div>
 
@@ -183,7 +186,7 @@
                 <div class="row center">
                     <div class="col s1"></div>
                     <div class="col s10">
-                        <a href="https://goo.gl/maps/Gh2LerGdLBdAYPvB6" class="center btn btn-primary-bg"
+                        <a href="https://goo.gl/maps/Gh2LerGdLBdAYPvB6" class="center btn btn-rounded btn-primary-bg"
                             target="_blank">
                             <i class="mdi mdi-pin"></i> Lapangan Koramil Taktakan
                         </a>
@@ -278,14 +281,9 @@
                     <div class="col s3"></div>
                     <div class="col s6" style="background-color: #a1887f;color: white;padding: 2rem;">
                         <p>BCA a.n MELA ROSA </p>
-                        <p class="waves-effect waves-light btn-small bg-primary"" onclick=" salinrekening()">
-                            2450831533 <i class="mdi mdi-content-copy"></i></p>
-                        <script>
-                            function salinrekening() {
-                                const text = "2450831533";
-                                navigator.clipboard.writeText(text);
-                            }
-                        </script>
+                        <p class="waves-effect waves-light btn btn-rounded"
+                            style="background-color: white; color: #a1887f">
+                            2450831533</p>
                     </div>
                     <div class="col s3"></div>
                 </div>
