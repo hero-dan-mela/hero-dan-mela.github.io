@@ -132,7 +132,11 @@
                 var layarheight = window.innerHeight;
                 var hvalue = 0;
                 if (imgwrapheight.clientHeight <= layarheight) {
-                    hvalue = imgwrapheight.clientHeight * 0.23;
+                    if (navigator.userAgent.match(/(iPod|iPhone)/)) {
+                        hvalue = imgwrapheight.clientHeight * 0.27;
+                    } else if {
+                        hvalue = imgwrapheight.clientHeight * 0.23;
+                    }
                 } else {
                     hvalue = (imgwrapheight.clientHeight - layarheight) + (layarheight * 0.15);
                 }
