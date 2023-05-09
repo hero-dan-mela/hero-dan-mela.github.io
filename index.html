@@ -85,8 +85,17 @@
             </picture>
         </div>
 
-        <a id="bukaundangan" href="#wedding" class="center btn btn-rounded btn-primary-bg pulse" onclick="playAudio()">
-            <i class="mdi mdi-email"></i> Buka Undangan</a>
+        <div id="bukaundangan" data-scroll="#wedding" class="center btn btn-rounded btn-primary-bg pulse" onclick="
+        $('#music')[0].play();
+        $('.footer-menu').css('display', 'block');
+        $('#mute-sound').css('display', 'block');
+        $('#bukaundangan').css('display', 'none');
+        $('html, body').animate({
+            scrollTop: $($(this).data('scroll')).offset().top
+        }, 500);
+    " style="display:inline-flex;">
+            <i class="mdi mdi-email"></i> Buka Undangan
+        </div>
 
     </div>
 
@@ -218,7 +227,7 @@
                                 style="color: white">2450831533</strong><br>MELA ROSA</p>
                         <p class="waves-effect waves-light btn btn-rounded"
                             style="background-color: #f4efebab; color: #a1887f; font-size: 0.8rem;"
-                            onclick=" salinrekening()">
+                            onclick="navigator.clipboard.writeText('2450831533')">
                             <i class="mdi mdi-content-copy"></i>Salin Nomor
                         </p>
 
@@ -299,15 +308,6 @@
 
     new Carousel(container, options, { Thumbs });
 
-</script>
-
-
-<script>
-
-    window.onload = function () {
-        document.getElementById("bukaundangan").style.display = "inline-flex";
-    };
-
     var settingAutoplay = 'yes';
     window.settingAutoplay = settingAutoplay === 'disable' ? false : true;
 
@@ -372,33 +372,17 @@
         var hvalue = 12;
         var rootFontSize = parseInt($('html').css('font-size'));
 
-        if (imgwrapheight <= layarheight) {
-            hvalue = 12;
-        } else {
-            hvalue = ((imgwrapheight - layarheight) / rootFontSize) + (layarheight * 0.15);
+        if (!navigator.userAgent.match(/iPhone/i)) {
+            if (imgwrapheight <= layarheight) {
+                hvalue = 12;
+            } else {
+                hvalue = ((imgwrapheight - layarheight) / rootFontSize) + ((layarheight * 0.15) / rootFontSize);
+            }
         }
 
         bukaundangan.css('top', '-' + hvalue + 'rem');
     });
 
-    function playAudio() {
-        $('#music')[0].play();
-        $('.footer-menu').css('display', 'block');
-        $('#bukaundangan').css('display', 'none');
-        $('#mute-sound').css('display', 'block');
-
-        $('body').css('overflow', 'auto');
-        $('.col:not(#landing)').css({
-            filter: 'none',
-            pointerEvents: 'auto'
-        });
-    }
-
-    function salinrekening() {
-        const text = "2450831533";
-        navigator.clipboard.writeText(text);
-    }
 </script>
-
 
 </html>
