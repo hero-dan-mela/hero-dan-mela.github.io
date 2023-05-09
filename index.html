@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/plugins/carousel/carousel.thumbs.css">
     <style>
         .col:not(#landing) {
-            filter: brightness(30%);
+            filter: brightness(1%);
             pointer-events: none;
         }
 
@@ -116,6 +116,7 @@
 
         <a id="bukaundangan" href="#wedding" class="center btn btn-rounded primary-bg" onclick="playAudio()">
             <i class="mdi mdi-email"></i> Buka Undangan</a>
+
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var imgwrapheight = document.querySelector('#landing picture .img-wrap');
@@ -125,11 +126,7 @@
                 var rootFontSize = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('font-size'));
 
                 if (imgwrapheight.clientHeight <= layarheight) {
-                    if (navigator.userAgent.match(/(iPod|iPhone)/)) {
-                        hvalue = 12;
-                    } else {
-                        hvalue = (imgwrapheight.clientHeight / rootFontSize) * 0.23;
-                    }
+                    hvalue = 12;
                 } else {
                     hvalue = ((imgwrapheight.clientHeight - layarheight) / rootFontSize) + (layarheight * 0.15);
                 }
