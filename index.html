@@ -75,7 +75,7 @@
         }
 
         #hantaran {
-            margin-bottom: -15rem;
+            margin-bottom: -17.8rem;
         }
 
         #landing {
@@ -281,10 +281,16 @@
                 <div class="row center">
                     <div class="col s3"></div>
                     <div class="col s6" style="background-color: #a1887f;color: white;padding: 2rem;">
-                        <p>BCA a.n MELA ROSA </p>
+                        <p>BCA<br>2450831533<br>MELA ROSA</p>
                         <p class="waves-effect waves-light btn btn-rounded"
-                            style="background-color: white; color: #a1887f">
-                            2450831533</p>
+                            style="background-color: white; color: #a1887f" onclick=" salinrekening()">
+                            Salin Nomor<i class="mdi mdi-content-copy"></i></p>
+                        <script>
+                            function salinrekening() {
+                                const text = "2450831533";
+                                navigator.clipboard.writeText(text);
+                            }
+                        </script>
                     </div>
                     <div class="col s3"></div>
                 </div>
