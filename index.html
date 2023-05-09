@@ -15,8 +15,12 @@
     <link rel="stylesheet" href="assets/plugins/carousel/carousel.css">
     <link rel="stylesheet" href="assets/plugins/carousel/carousel.thumbs.css">
     <style>
+        body {
+            overflow-y: hidden;
+        }
+
         .col:not(#landing) {
-            filter: brightness(95%);
+            filter: brightness(35%);
             pointer-events: none;
         }
 
@@ -114,7 +118,7 @@
             </picture>
         </div>
 
-        <a id="bukaundangan" href="#wedding" class="center btn btn-rounded primary-bg" onclick="playAudio()">
+        <a id="bukaundangan" href="#wedding" class="center btn btn-rounded btn-primary-bg pulse" onclick="playAudio()">
             <i class="mdi mdi-email"></i> Buka Undangan</a>
 
         <script>
