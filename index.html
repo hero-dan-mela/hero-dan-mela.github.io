@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Undangan pernikahan Hero dan Mela">
+    <meta name="format-detection" content="telephone=no">
     <title>Undangan Pernikahan Hero dan Mela</title>
     <link rel="icon" type="image/png" href="assets/icon/favicon.png">
     <!-- CORE CSS FRAMEWORK - START -->
@@ -14,7 +15,6 @@
     <link rel="stylesheet" href="assets/plugins/carousel/carousel.css">
     <link rel="stylesheet" href="assets/plugins/carousel/carousel.thumbs.css">
     <style>
-
         #myCarousel {
             margin: 0 auto;
         }
@@ -289,6 +289,20 @@
 <script src="assets/plugins/carousel/carousel.umd.js"></script>
 
 <script>
+    const container = document.getElementById("myCarousel");
+    const options = {
+        Dots: false,
+        Thumbs: {
+            type: "classic",
+        },
+    };
+
+    new Carousel(container, options, { Thumbs });
+
+</script>
+
+
+<script>
 
     window.onload = function () {
         document.getElementById("bukaundangan").style.display = "inline-flex";
@@ -308,16 +322,6 @@
         $('#unmute-sound').show();
         $(this).hide();
     });
-
-    const container = $('#myCarousel');
-    const options = {
-        Dots: false,
-        Thumbs: {
-            type: "classic",
-        },
-    };
-
-    new Carousel(container, options, { Thumbs });
 
     var timeout;
 
