@@ -14,14 +14,9 @@
     <link rel="stylesheet" href="assets/plugins/carousel/carousel.css">
     <link rel="stylesheet" href="assets/plugins/carousel/carousel.thumbs.css">
     <style>
-        body {
-            overflow-y: hidden;
-        }
+        body {}
 
-        .col:not(#landing) {
-            filter: brightness(35%);
-            pointer-events: none;
-        }
+        .col:not(#landing) {}
 
         #myCarousel {
             margin: 0 auto;
@@ -43,18 +38,6 @@
             animation-name: fadeIn;
             animation-duration: 1s;
             z-index: 999;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
-
-        @keyframes pullBack {
-            from {
-                transform: translateY(0);
-            }
-
-            to {
-                transform: translateY(-20px);
-            }
         }
 
         #map a {
@@ -309,7 +292,7 @@
 <script src="assets/plugins/carousel/carousel.umd.js"></script>
 
 <script>
-    
+
     window.onload = function () {
         document.getElementById("bukaundangan").style.display = "inline-flex";
     };
@@ -385,7 +368,7 @@
         var imgwrapheight = $('#landing picture .img-wrap').height();
         var bukaundangan = $('#bukaundangan');
         var layarheight = $(window).height();
-        var hvalue = 0;
+        var hvalue = 12;
         var rootFontSize = parseInt($('html').css('font-size'));
 
         if (imgwrapheight <= layarheight) {
